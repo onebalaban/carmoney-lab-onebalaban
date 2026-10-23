@@ -1,0 +1,52 @@
+[
+  {
+    "mileage": 399999,
+    "status": 201,
+    "json": {
+      "id": 1,
+      "vehicle_age": 7,
+      "ltv": 50,
+      "decision": "approve",
+      "approved_limit": 450000
+    },
+    "text": "Решение\nРешение\nAPPROVE\nLTV\n50 %\nВозраст авто\n7 лет\nОдобренный лимит\n450 000 ₽\nНомер заявки\n1",
+    "screenshot": "399999.png"
+  },
+  {
+    "mileage": 400000,
+    "status": 201,
+    "json": {
+      "id": 2,
+      "vehicle_age": 7,
+      "ltv": 50,
+      "decision": "approve",
+      "approved_limit": 450000
+    },
+    "text": "Решение\nРешение\nAPPROVE\nLTV\n50 %\nВозраст авто\n7 лет\nОдобренный лимит\n450 000 ₽\nНомер заявки\n2",
+    "screenshot": "400000.png"
+  },
+  {
+    "mileage": 400001,
+    "status": 201,
+    "json": {
+      "id": 3,
+      "vehicle_age": 7,
+      "ltv": 50,
+      "decision": "review",
+      "approved_limit": 0
+    },
+    "text": "Решение\nРешение\nREVIEW\nLTV\n50 %\nВозраст авто\n7 лет\nОдобренный лимит\n0 ₽\nНомер заявки\n3",
+    "screenshot": "400001.png"
+  },
+  {
+    "mileage": 600000,
+    "status": 422,
+    "json": {
+      "errors": {
+        "mileage": "Пробег от 0 до 500000 км"
+      }
+    },
+    "text": "Заявка не принята\nmileage: Пробег от 0 до 500000 км",
+    "screenshot": "600000.png"
+  }
+]
