@@ -13,6 +13,8 @@ curl http://localhost:8080/health
 ```
 Без Docker: `make test` и `make lint` сами выполнят `composer install`, если PHP и Composer есть; иначе локального запуска нет.
 
+Для поиска по коду сначала использовать ast-index search/symbol/usages/callers; если строковые ключи не найдены или выдача усечена — проверить rg. Браузер нужен для наблюдения UI, не для поиска значений конфигурации.
+
 ## Структура
 - `backend/` — PHP-код и Dockerfile; `frontend/` — клиентская форма; `db/` — схема и синтетические seed-данные.
 - `tests/` — PHPUnit-тесты; `docs/` — документация и артефакты; `mocks/` — моки.
