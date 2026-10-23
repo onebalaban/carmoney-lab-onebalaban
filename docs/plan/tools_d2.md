@@ -1,5 +1,5 @@
 # Инструменты дня 2
-Фактически используется Codex и Playwright Node API. MCP Kilo настроен, но его сессия не проверялась.
+Используются ast-index и Playwright Node API. MCP Kilo настроен, но его сессия не проверялась.
 Артефакты в docs/plan/ вместо docs/setup/ и docs/metrics/: ограничение AGENTS.md.
 
 ## 2.1.1: до индекса
@@ -46,4 +46,4 @@ rg -n 'mileage|max_mileage' backend frontend tests:
 ## 2.1.4: маршрутизация
 - «Проверь 400001 и покажи, что видит пользователь» → Playwright, реальный POST и screenshot → подходящий инструмент.
 - «Где порог пробега и его значение?» → ast-index search max_mileage_km, без браузера → backend/config/rules.php:23, 500000; порог review рядом, 400000.
-Это протокол текущей работы Codex, не две независимые сессии Kilo. Автовыбор MiniMax не проверен.
+Это протокол проверки инструментов, не две независимые сессии Kilo. Автовыбор MiniMax не проверен.
