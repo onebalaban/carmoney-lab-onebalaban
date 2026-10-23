@@ -13,12 +13,17 @@ namespace CarMoneyLab\Domain;
  */
 final class AssessmentService
 {
+    private readonly int $reviewMileageKm;
+
     public function __construct(
         private readonly ApplicationValidator $validator,
         private readonly LtvCalculator $ltvCalculator,
         private readonly DecisionEngine $decisionEngine,
         private readonly VehicleAge $vehicleAge,
+        ?int $reviewMileageKm = null,
     ) {
+        $this->reviewMileageKm = $reviewMileageKm
+            ?? (require __DIR__ . "/../../config/rules.php")["vehicle"]["review_mileage_km"];
     }
 
     /**
@@ -31,6 +36,9 @@ final class AssessmentService
 
         $ltv = $this->ltvCalculator->calculate($input['requested_amount'], $input['market_value']);
         $decision = $this->decisionEngine->decide($ltv);
+        if ($decision === DecisionEngine::APPROVE && $input['mileage'] > $this->reviewMileageKm) {
+            $decision = DecisionEngine::REVIEW;
+        }
 
         return [
             'vehicle_age' => $this->vehicleAge->inYears($input['year']),
