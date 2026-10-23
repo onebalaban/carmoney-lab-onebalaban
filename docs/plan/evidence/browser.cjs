@@ -1,11 +1,11 @@
-const {chromium, devices}=require('/Users/roman/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {chromium, devices}=require('playwright');
 const fs=require('fs');
 (async()=>{
  const browser=await chromium.launch({headless:true});
  const mobile=process.argv.includes('--mobile');
  const context=await browser.newContext(mobile?devices['iPhone 13']:{viewport:{width:1100,height:1000}});
  const page=await context.newPage();
- const base='/Users/roman/GitLab/carmoney-lab-onebalaban/docs/plan/evidence';
+ const base=__dirname;
  let results=[];
  for(const mileage of mobile?[400001]:[399999,400000,400001,600000]){
   await page.goto('http://127.0.0.1:8080/');
